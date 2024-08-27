@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ぬんぬんぬん - 「不停的 🦌」</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+  <script defer src="js/video.js"></script>
+  <script defer src="js/submit.js"></script>
+  <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/cef/dist/CEFFontsCJK-Regular/result.css' />
+  <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+  <img src="src/cursor.svg" id="cursor">
+  <nav>
+    <h1>ぬんぬんぬん - 又名「不停的 🦌」</h1>
+    <div class="menu-button" id="menuButton">☰</div>
+    <ul class="menu" id="menu">
+      <li>追番 -></li>
+      <li><a href="https://ani.gamer.com.tw/animeVideo.php?sn=39293">巴哈姆特动画疯</a></li>
+      <li><a href="https://www.youtube.com/playlist?list=PLhGamQZtJ7K8lx-LvlNooiy7rkG10Cf3Z">Youtube</a></li>
+      <li>Info -></li>
+      <li>Source Code</li>
+    </ul>
+  </nav>
+  <header>
+    <h1 id="status">点击下方的鹿乃子开🦌！</h1>
+    <h2>您已经 🦌 了 <span id="count">0</span> 次</h2>
+    <noscript>您需要启用 Javascript 来运行本网站。</noscript>
+    <div class="action">
+      <div class="btn" onclick="document.getElementsByClassName('confirm')[0].style.display = 'flex';">提交到排行榜</div>
+      <div class="btn"
+        onclick="document.getElementsByClassName('confirm')[1].style.display = 'flex'; loadLeaderboard();">查看排行榜</div>
+    </div>
+
+    <div class="confirm" style="display: none;">
+      <div class="form">
+        <p>提交到排行榜需要记录您的IP和名称，每人每天只能提交一次。</p>
+        <input type="text" id="name" placeholder="Your Name (<10 words)" required maxlength="10" minlength="1">
+        <div class="action">
+          <button class="btn" onclick="submitRank()">确认提交</button>
+          <button type="reset" id="cancel" class="btn"
+            onclick="document.getElementsByClassName('confirm')[0].style.display = 'none';">还是算了</button>
+        </div>
+      </div>
+    </div>
+    <div class="confirm">
+      <table id="leaderboard" style="display: none;">
+        <thead>
+          <tr>
+            <th>NO.</th>
+            <th>地区</th>
+            <th>名称</th>
+            <th>时间</th>
+            <th>次数</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <button class="btn" onclick="document.getElementsByClassName('confirm')[1].style.display = 'none';">OK</button>
+    </div>
+  </header>
+
+  <main>
+    <video id="firstVideo" disablepictureinpicture playsinline preload="auto">
+      <source src="src/loop.mp4" type="video/mp4">
+    </video>
+    <video id="secondVideo" style="display: none;" disablepictureinpicture playsinline preload="auto">
+      <source src="src/end.mp4" type="video/mp4">
+    </video>
+    <audio id="audioLoop" style="display: none;">
+      <source src="src/na_short.mp3" type="audio/mpeg">
+    </audio>
+
+  </main>
+</body>
+
+</html>
