@@ -2,7 +2,8 @@
 一个由 CloudFlare Pages + CloudFlare D1 制作的简易 Demo.
 
 ## 部署教程
-1. 安装 `wrnagler` 并登陆 CloudFlare 账号
+本项目不能网页端部署。以下是CLi部署教程。
+1. 安装 `wrangler` 并登陆 CloudFlare 账号
 ```
 git clone https://github.com/mengxin10824/Nun.git
 cd Nun
@@ -13,8 +14,8 @@ wrangler login
 ```
 wrangler d1 create <db-name>
 ```
-会出现`[[d1_databases]]`开头的配置文件
-复制这个文件，然后配置如下格式`wrangler.toml`文件
+会出现`[[d1_databases]]`开头的配置信息
+复制这个信息，然后在根目录创建如下格式的`wrangler.toml`文件
 ```
 name = "nun" # 项目名称
 pages_build_output_dir = "public" # 不要改这个
@@ -30,6 +31,6 @@ wrangler d1 execute <db-name> --remote --file=./_init.sql
 ```
 4. 部署
 ```
-wrangler deploy
+wrangler pages deploy
 ```
 5. 在 CloudFlare 后台绑定自己的域名（可选）
