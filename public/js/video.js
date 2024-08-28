@@ -60,7 +60,7 @@ if (!(/Mobi|Android|iPhone/i.test(navigator.userAgent)) || cursorChanged) {
   const moveCursor = (e) => {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
-    cursorPointed.style.translate = `${mouseX}px ${mouseY}px`
+    cursorPointed.style.translate = `${mouseX}px ${mouseY}px`;
     if (isRotate) {
       cursorPointed.style.transform = `rotate(180deg) scale(5)`;
     } else {
